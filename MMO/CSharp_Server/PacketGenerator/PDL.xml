@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PDL>
+	<packet name="PlayerList">
+		<list name="player">
+			<int name="PlayerId"/>
+			<bool name="IsSelf"/>
+			<float name="PosX"/>
+			<float name="PosY"/>
+			<float name="PosZ"/>
+			<float name="RotX"/>
+			<float name="RotY"/>
+			<float name="RotZ"/>
+		</list>
+	</packet>
+	<packet name="BroadCastEnter">
+		<int name="PlayerId"/>
+		<float name="PosX"/>
+		<float name="PosY"/>
+		<float name="PosZ"/>
+		<float name="RotX"/>
+		<float name="RotY"/>
+		<float name="RotZ"/>
+	</packet>
+	<packet name="BroadCastLeave">
+		<int name="PlayerId"/>
+	</packet>
+	<packet name="PlayerMove">
+		<int name="PlayerId"/>
+		<int name="StateConvertNum"/>
+		<float name="PosX"/>
+		<float name="PosY"/>
+		<float name="PosZ"/>
+		<float name="RotX"/>
+		<float name="RotY"/>
+		<float name="RotZ"/>
+	</packet>
+	<packet name="Data">
+		<int name="PlayerId"/>
+		<int name="Level"/>
+		<int name="MaxHp"/>
+		<float name ="Hp"/>
+		<int name="MaxMp"/>
+		<float name ="Mp"/>
+		<float name="Attack"/>
+		<float name="AttackSpeed"/>
+		<float name="Speed"/>
+	</packet>
+</PDL>

@@ -1,0 +1,15 @@
+C:\CSharp_Server\PacketGenerator\bin\net7.0\PacketGenerator.exe
+C:\CSharp_Server\PacketGenerator\bin\net7.0\PacketGenerator.deps.json
+C:\CSharp_Server\PacketGenerator\bin\net7.0\PacketGenerator.runtimeconfig.json
+C:\CSharp_Server\PacketGenerator\bin\net7.0\PacketGenerator.dll
+C:\CSharp_Server\PacketGenerator\bin\net7.0\PacketGenerator.pdb
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.csproj.AssemblyReference.cache
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.AssemblyInfoInputs.cache
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.AssemblyInfo.cs
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.csproj.CoreCompileInputs.cache
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.dll
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\refint\PacketGenerator.dll
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.pdb
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\PacketGenerator.genruntimeconfig.cache
+C:\CSharp_Server\PacketGenerator\obj\Debug\net7.0\ref\PacketGenerator.dll
