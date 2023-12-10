@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PacketGenerator
-build_property.ProjectDir = C:\Users\오헌\Documents\MMOTest\MMO\CSharp_Server\PacketGenerator\
+build_property.ProjectDir = C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\PacketGenerator\

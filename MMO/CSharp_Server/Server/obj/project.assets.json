@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\오헌\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\Server\\obj\\",
+      "outputPath": "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\ServerCore\\ServerCore.csproj": {
-              "projectPath": "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\ServerCore\\ServerCore.csproj"
+            "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\ServerCore\\ServerCore.csproj": {
+              "projectPath": "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\ServerCore\\ServerCore.csproj"
             }
           }
         }

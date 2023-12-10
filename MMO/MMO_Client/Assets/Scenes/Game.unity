@@ -572,6 +572,7 @@ MonoBehaviour:
   dollyDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   A: 0.03
+  _mouseWheel: 0
 --- !u!1 &1000015670
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11bd451c7a74444bb2bf653182239fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _playerStat: {fileID: 0}
+  _parent: {fileID: 0}
 --- !u!1 &1960856415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5557819139272372061, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
@@ -728,6 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c919bbe31972d424c84ccdf2a099d364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mpBar: {fileID: 0}
+  _player: {fileID: 0}
+  _playerStat: {fileID: 0}
 --- !u!1001 &1016289895691160646
 PrefabInstance:
   m_ObjectHideFlags: 0

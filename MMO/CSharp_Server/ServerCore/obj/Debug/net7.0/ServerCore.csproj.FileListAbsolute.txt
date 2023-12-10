@@ -20,3 +20,14 @@ C:\Users\오헌\Documents\MMOTest\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\
 C:\Users\오헌\Documents\MMOTest\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\refint\ServerCore.dll
 C:\Users\오헌\Documents\MMOTest\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.pdb
 C:\Users\오헌\Documents\MMOTest\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ref\ServerCore.dll
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\bin\Debug\net7.0\ServerCore.deps.json
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\bin\Debug\net7.0\ServerCore.dll
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\bin\Debug\net7.0\ServerCore.pdb
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.AssemblyInfoInputs.cache
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.AssemblyInfo.cs
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.csproj.CoreCompileInputs.cache
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.dll
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\refint\ServerCore.dll
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ServerCore.pdb
+C:\Users\오헌\Documents\GitHub\Project_MR\MMO\CSharp_Server\ServerCore\obj\Debug\net7.0\ref\ServerCore.dll

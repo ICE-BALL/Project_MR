@@ -13,6 +13,7 @@ public class CameraCollision : MonoBehaviour
 
     public float distance;
     public float A = 0.03f;
+    public float _mouseWheel;
 
     private void Awake()
     {
@@ -21,6 +22,12 @@ public class CameraCollision : MonoBehaviour
     }
 
     void Update()
+    {
+        MouseWheel();
+        CameraCollisionUpdate();
+    }
+
+    void CameraCollisionUpdate()
     {
         Vector3 DCameraPos = transform.parent.TransformPoint(dollyDir * _maxDistance);
         RaycastHit hit;
@@ -35,5 +42,28 @@ public class CameraCollision : MonoBehaviour
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * _smooth);
+    }
+
+    void MouseWheel()
+    {
+        _mouseWheel = -(Input.GetAxis("Mouse ScrollWheel") * 10);
+        if (_maxDistance >= 8)
+        {
+            if (_mouseWheel < 0)
+            {
+                _maxDistance += _mouseWheel;
+            }
+        }
+        else if (_maxDistance <= 4)
+        {
+            if (_mouseWheel > 0)
+            {
+                _maxDistance += _mouseWheel;
+            }
+        }
+        else
+        {
+            _maxDistance += _mouseWheel;
+        }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wTOfnAG/N+i11YVpeyMmma6uPM2BzEY7sLiClwtZ7OUhWvnXVkiPciTsnJpzFMr13+/we1slhC5OD1qU+KgQ2A==",
+  "dgSpecHash": "FbYXiMC5n4ceOMmqoZBmWcVdfA/OciyJYPN3ke/Fg759ODg/WRbGKPfvOD3+4UmgJonicz/nhCt8BhUZ+c3giQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\오헌\\Documents\\MMOTest\\MMO\\CSharp_Server\\DummyClient\\DummyClient.csproj",
+  "projectFilePath": "C:\\Users\\오헌\\Documents\\GitHub\\Project_MR\\MMO\\CSharp_Server\\DummyClient\\DummyClient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

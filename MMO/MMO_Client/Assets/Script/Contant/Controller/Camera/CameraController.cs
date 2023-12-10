@@ -32,18 +32,17 @@ public class CameraController : MonoBehaviour
     {
         if (_player != null)
         {
-            _mouseX = Input.GetAxis("Mouse X");
-            _mouseY = Input.GetAxis("Mouse Y");
+            if (Input.GetMouseButton(1))
+            {
+                _mouseX = Input.GetAxis("Mouse X");
+                _mouseY = Input.GetAxis("Mouse Y");
 
-            _xAngle += _mouseX * _sensitivity;
-            _yAngle -= _mouseY * _sensitivity;
-
-
+                _xAngle += _mouseX * _sensitivity;
+                _yAngle -= _mouseY * _sensitivity;
+            }
             _yAngle = Mathf.Clamp(_yAngle, -90, 30);
 
-
             transform.rotation = Quaternion.Euler(_yAngle, _xAngle, 0);
-
             transform.position = _player.transform.position + _delta;
         }
         else

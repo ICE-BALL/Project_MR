@@ -23,11 +23,11 @@ public class GameManagerEX
     {
         if (GameObject.Find("Player") != null)
             Managers.Resource.Destroy(GameObject.Find("Player"));
+        if (GameObject.Find("Main_UI") == null)
+            _sceneUI = Managers.Resource.Instantiate("UI/UI_Scene/Main_UI", Managers.UI_Root.transform);
+        else
+            _sceneUI = GameObject.Find("Main_UI");
 
-        //_myPlayer = Managers.Resource.Instantiate("Player");
-
-        _sceneUI = Managers.Resource.Instantiate("UI/UI_Scene/Main_UI", Managers.UI_Root.transform);
-        
     }
 
 }

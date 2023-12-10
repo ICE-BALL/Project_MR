@@ -234,33 +234,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7742}
     - Class: 114
-      Script: {instanceID: 32036}
+      Script: {instanceID: 38100}
     - Class: 114
-      Script: {instanceID: 32038}
+      Script: {instanceID: 38102}
     - Class: 114
-      Script: {instanceID: 32040}
+      Script: {instanceID: 38104}
     - Class: 114
-      Script: {instanceID: 32050}
+      Script: {instanceID: 38114}
     - Class: 114
-      Script: {instanceID: 32052}
+      Script: {instanceID: 38116}
     - Class: 114
-      Script: {instanceID: 32054}
+      Script: {instanceID: 38118}
     - Class: 114
-      Script: {instanceID: 32056}
+      Script: {instanceID: 38120}
     - Class: 114
-      Script: {instanceID: 32064}
+      Script: {instanceID: 38128}
     - Class: 114
-      Script: {instanceID: 32066}
+      Script: {instanceID: 38130}
     - Class: 114
-      Script: {instanceID: 32068}
+      Script: {instanceID: 38132}
     - Class: 114
-      Script: {instanceID: 33678}
+      Script: {instanceID: 39746}
     - Class: 114
-      Script: {instanceID: 33686}
+      Script: {instanceID: 39754}
     - Class: 114
-      Script: {instanceID: 33688}
+      Script: {instanceID: 39756}
     - Class: 114
-      Script: {instanceID: 33690}
+      Script: {instanceID: 39758}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -456,7 +456,7 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ca1db55e9bed50dcf1d37bdea844f50f
+      Hash: bde42dd463a0a0ff28385dabc851eab2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraCollision
@@ -1166,4 +1166,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/SelectServer.unity
   - Assets/Scenes/Game.unity
-  playerPath: "C:/Users/\uC624\uD5CC/Documents/MMOTest/MMO/MMO_Client/Builds/Win64/MMO_Client2/MMO_Client2.exe"
+  playerPath: "C:/Users/\uC624\uD5CC/Documents/GitHub/Project_MR/MMO/MMO_Client/Builds/Win64/MMO_Client2/MMO_Client2.exe"
