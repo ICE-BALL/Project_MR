@@ -68,6 +68,21 @@ namespace ServerCore
             RegisterRecv();
         }
 
+        public void Send(List<ArraySegment<byte>> sendBuffList)
+        {
+            if (sendBuffList.Count == 0)
+                return;
+
+            lock (_lock)
+            {
+                foreach (ArraySegment<byte> sendBuff in sendBuffList)
+                    _sendQueue.Enqueue(sendBuff);
+
+                if (_sendList.Count == 0)
+                    RegisterSend();
+            }
+        }
+
         public void Send(ArraySegment<byte> sendBuff)
         {
             lock (_lock)

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        _mask = LayerMask.GetMask("Creature");
         _stat = GetComponent<PlayerStat>();
         _camera = Camera.main.gameObject;
         _anim = GetComponent<Animator>();
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         PlayerMovement();
+        Debug.DrawRay(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), Color.red);
 
     }
 
@@ -114,5 +116,29 @@ public class PlayerController : MonoBehaviour
             _state = define.PlayerState.Idle;
         }
 
+    }
+
+    public void OnHit()
+    {
+        RaycastHit hit;
+        
+        if (Physics.Raycast(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), out hit, 1.5f, _mask))
+        {
+            PlayerStat stat = hit.collider.gameObject.GetComponent<PlayerStat>();
+            if (stat != null)
+            {
+                stat.Hp -= _stat.Attack;
+                Data data = new Data();
+                data.MaxHp = stat.MaxHp;
+                data.Attack = stat.Attack;
+                data.AttackSpeed = stat.AttackSpeed;
+                data.Hp = stat.Hp;
+                data.MaxMp = stat.MaxMp;
+                data.Mp = stat.Mp;
+                data.Speed = stat.Speed;
+                data.PlayerId = stat.PlayerId;
+                NetworkManager._session.Send(data.Write());
+            }
+        }
     }
 }

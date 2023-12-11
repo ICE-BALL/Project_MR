@@ -114,6 +114,7 @@ public class RecvPacket
             stat.Attack = data.Attack;
             stat.AttackSpeed = data.AttackSpeed;
             stat.Speed = data.Speed;
+            stat.PlayerId = data.PlayerId;
         }
         else
         {
@@ -129,6 +130,7 @@ public class RecvPacket
                 stat.Attack = data.Attack;
                 stat.AttackSpeed = data.AttackSpeed;
                 stat.Speed = data.Speed;
+                stat.PlayerId = data.PlayerId;
             }
         }
     }
