@@ -28,6 +28,14 @@ public class GameManagerEX
         else
             _sceneUI = GameObject.Find("Main_UI");
 
+        // TODO
+
+        // Monster Generate
+
+        //
+
+        //
+
     }
 
 }

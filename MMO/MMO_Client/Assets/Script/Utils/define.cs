@@ -10,4 +10,12 @@ public class define
         Run,
         Attack,
     }
+
+    public enum SliemState
+    {
+        Idle,
+        Run,
+        Walk,
+        Attack,
+    }
 }

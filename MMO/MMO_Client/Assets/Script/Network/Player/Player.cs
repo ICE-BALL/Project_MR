@@ -39,4 +39,20 @@ public class Player : MonoBehaviour
     {
         _state = StateSpeed;
     }
+
+    public void HitEvent(GameObject obj)
+    {
+        PlayerStat stat = gameObject.GetComponent<PlayerStat>();
+        stat.Hp -= obj.GetComponent<Stat>().Attack;
+        Data data = new Data();
+        data.MaxHp = stat.MaxHp;
+        data.Attack = stat.Attack;
+        data.AttackSpeed = stat.AttackSpeed;
+        data.Hp = stat.Hp;
+        data.MaxMp = stat.MaxMp;
+        data.Mp = stat.Mp;
+        data.Speed = stat.Speed;
+        data.PlayerId = stat.PlayerId;
+        NetworkManager._session.Send(data.Write());
+    }
 }

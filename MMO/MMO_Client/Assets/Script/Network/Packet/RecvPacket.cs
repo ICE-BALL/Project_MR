@@ -43,6 +43,7 @@ public class RecvPacket
                 myPlayer.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
                 myPlayer.transform.rotation = Quaternion.Euler(new Vector3(p.RotX, p.RotY, p.RotZ));
                 _myPlayer = myPlayer;
+                PlayerManager.Instance._players.Add(_myPlayer.gameObject);
             }
             else
             {
@@ -53,6 +54,7 @@ public class RecvPacket
                 player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
                 player.transform.rotation = Quaternion.Euler(new Vector3(p.RotX, p.RotY, p.RotZ));
                 NetworkManager._players.Add(p.PlayerId, player);
+                PlayerManager.Instance._players.Add(player.gameObject);
             }
         }
     }
@@ -70,6 +72,7 @@ public class RecvPacket
         player.transform.position = new Vector3(enter.PosX, enter.PosY, enter.PosZ);
         player.transform.rotation = Quaternion.Euler(new Vector3(enter.RotX, enter.RotY, enter.RotZ));
         NetworkManager._players.Add(enter.PlayerId, player);
+        PlayerManager.Instance._players.Add(player.gameObject);
     }
 
     public void MoveOtherPlayer(IPacket packet)
@@ -93,6 +96,7 @@ public class RecvPacket
         if (NetworkManager._players.TryGetValue(leave.PlayerId, out p))
         {
             Managers.Resource.Destroy(p.gameObject);
+            PlayerManager.Instance._players.Remove(p.gameObject);
 
             NetworkManager._players.Remove(leave.PlayerId);
         }
