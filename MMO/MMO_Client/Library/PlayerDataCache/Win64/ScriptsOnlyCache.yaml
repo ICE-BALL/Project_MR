@@ -7,10 +7,13 @@ ScriptsOnlyBuild:
     - HP_Bar
     - MP_Bar
     - Managers
+    - MonsterStat
     - NetworkManager
     - PlayerController
     - PlayerStat
     - SelectServerButton
+    - Slime
+    - SlimeController
     - Teleport
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -109,28 +112,36 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2730}
+      Script: {instanceID: 2726}
     - Class: 114
-      Script: {instanceID: 3924}
+      Script: {instanceID: 2732}
     - Class: 114
-      Script: {instanceID: 4018}
+      Script: {instanceID: 3854}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 3930}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 4024}
     - Class: 114
-      Script: {instanceID: 5906}
+      Script: {instanceID: 5172}
     - Class: 114
-      Script: {instanceID: 5958}
+      Script: {instanceID: 5204}
     - Class: 114
-      Script: {instanceID: 6404}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 7348}
+      Script: {instanceID: 5914}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 5966}
     - Class: 114
-      Script: {instanceID: 7742}
+      Script: {instanceID: 6412}
+    - Class: 114
+      Script: {instanceID: 7356}
+    - Class: 114
+      Script: {instanceID: 7598}
+    - Class: 114
+      Script: {instanceID: 7750}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -141,6 +152,8 @@ ScriptsOnlyBuild:
     - Class: 156
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -163,6 +176,8 @@ ScriptsOnlyBuild:
     - Class: 226
       Script: {instanceID: 0}
     - Class: 227
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 1953259897
       Script: {instanceID: 0}
@@ -212,55 +227,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 3178}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 4018}
+      Script: {instanceID: 4024}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 5204}
     - Class: 114
-      Script: {instanceID: 5290}
+      Script: {instanceID: 5296}
     - Class: 114
-      Script: {instanceID: 5444}
+      Script: {instanceID: 5450}
     - Class: 114
-      Script: {instanceID: 5572}
+      Script: {instanceID: 5580}
     - Class: 114
-      Script: {instanceID: 5906}
+      Script: {instanceID: 5914}
     - Class: 114
-      Script: {instanceID: 6404}
+      Script: {instanceID: 6412}
     - Class: 114
-      Script: {instanceID: 7314}
+      Script: {instanceID: 7322}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 7598}
     - Class: 114
-      Script: {instanceID: 7742}
+      Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 31154}
+      Script: {instanceID: 36594}
     - Class: 114
-      Script: {instanceID: 31156}
+      Script: {instanceID: 36596}
     - Class: 114
-      Script: {instanceID: 31158}
+      Script: {instanceID: 36598}
     - Class: 114
-      Script: {instanceID: 31168}
+      Script: {instanceID: 36608}
     - Class: 114
-      Script: {instanceID: 31170}
+      Script: {instanceID: 36610}
     - Class: 114
-      Script: {instanceID: 31172}
+      Script: {instanceID: 36612}
     - Class: 114
-      Script: {instanceID: 31174}
+      Script: {instanceID: 36614}
     - Class: 114
-      Script: {instanceID: 31182}
+      Script: {instanceID: 36622}
     - Class: 114
-      Script: {instanceID: 31184}
+      Script: {instanceID: 36624}
     - Class: 114
-      Script: {instanceID: 31186}
+      Script: {instanceID: 36626}
     - Class: 114
-      Script: {instanceID: 33436}
+      Script: {instanceID: 42360}
     - Class: 114
-      Script: {instanceID: 33444}
+      Script: {instanceID: 42368}
     - Class: 114
-      Script: {instanceID: 33446}
+      Script: {instanceID: 42370}
     - Class: 114
-      Script: {instanceID: 33448}
+      Script: {instanceID: 42372}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -456,6 +471,12 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Slime
+  - hash:
+      serializedVersion: 2
       Hash: bde42dd463a0a0ff28385dabc851eab2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -616,6 +637,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Flow.dll
     namespaceName: Unity.VisualScripting
     className: ScriptGraphAsset
+  - hash:
+      serializedVersion: 2
+      Hash: ac8ecfbde034cd278f12d8a936955874
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MonsterStat
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -856,6 +883,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c8a4934bd99d8561b9d70916c58cf968
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SlimeController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f

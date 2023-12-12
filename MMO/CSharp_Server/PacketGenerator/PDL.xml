@@ -45,4 +45,26 @@
 		<float name="AttackSpeed"/>
 		<float name="Speed"/>
 	</packet>
+	<packet name="MonsterList">
+		<list name="monsters">
+			<int name="MonsterId"/>
+			<float name="PosX"/>
+			<float name="PosY"/>
+			<float name="PosZ"/>
+			<float name="RotX"/>
+			<float name="RotY"/>
+			<float name="RotZ"/>
+		</list>
+	</packet>
+	<packet name="MonsterData">
+		<int name="MonsterId"/>
+		<int name="Level"/>
+		<int name="MaxHp"/>
+		<float name ="Hp"/>
+		<int name="MaxMp"/>
+		<float name ="Mp"/>
+		<float name="Attack"/>
+		<float name="AttackSpeed"/>
+		<float name="Speed"/>
+	</packet>
 </PDL>

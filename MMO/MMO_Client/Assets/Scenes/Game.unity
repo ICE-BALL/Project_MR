@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 47023845795352045, guid: 08aa314eeb5f3b4419bc0981421085b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 47023845795352045, guid: 08aa314eeb5f3b4419bc0981421085b5, type: 3}
       propertyPath: m_TagString
@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 95457531593924090}
   - component: {fileID: 95457531593924089}
   - component: {fileID: 95457531593924092}
+  - component: {fileID: 95457531593924093}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -1189,6 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f91fe591f7b814b8ae9655c26431b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scanRange: 10
 --- !u!114 &95457531593924090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1238,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &95457531593924093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931298159243748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73c2ac3eac7bfe4687c6ecd97caf99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _maxHp: 0
+  _hp: 0
+  _maxMp: 0
+  _mp: 0
+  _attack: 0
+  _attackSpeed: 0
+  _speed: 5
 --- !u!137 &137218116664152228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -1308,11 +1330,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1016289895765241903, guid: fa804499b0268a04787263aecadd0f24, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1016289895765241903, guid: fa804499b0268a04787263aecadd0f24, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1016289897599702296, guid: fa804499b0268a04787263aecadd0f24, type: 3}
       propertyPath: m_Name
@@ -1482,11 +1504,11 @@ PrefabInstance:
       objectReference: {fileID: 736255818}
     - target: {fileID: 5557819140747755509, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5557819140747755509, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5557819140993451928, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_Pivot.x
@@ -1578,7 +1600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557819140993451932, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557819141200872855, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_Value
@@ -1590,11 +1612,11 @@ PrefabInstance:
       objectReference: {fileID: 848942741}
     - target: {fileID: 5557819141341864564, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5557819141341864564, guid: bd0141376c2571a4a860723d0995eebc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd0141376c2571a4a860723d0995eebc, type: 3}

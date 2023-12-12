@@ -12,6 +12,7 @@ namespace Server
         static RecvPacket _recvPacket = new RecvPacket();
         public static RecvPacket Instance { get { return _recvPacket; } }
 
+        #region Non Server Packet
         public void PlayerList(IPacket packet, ClientSession s)
         {
 
@@ -26,6 +27,7 @@ namespace Server
         {
 
         }
+        #endregion
 
         public void PlayerMove(IPacket packet, ClientSession s)
         {
@@ -73,6 +75,27 @@ namespace Server
             s.Speed = data.Speed;
 
             Program.Room.BroadCast(data.Write(), s);
+        }
+
+        public void MonsterList(IPacket packet, ClientSession s)
+        {
+
+        }
+
+        public void MonsterData(IPacket packet, ClientSession s)
+        {
+            //MonsterData data = packet as MonsterData;
+
+            //s.Level = data.Level;
+            //s.MaxHp = data.MaxHp;
+            //s.Hp = data.Hp;
+            //s.MaxMp = data.MaxMp;
+            //s.Mp = data.Mp;
+            //s.Attack = data.Attack;
+            //s.AttackSpeed = data.AttackSpeed;
+            //s.Speed = data.Speed;
+
+            //Program.Room.BroadCast(data.Write(), s);
         }
     }
 }

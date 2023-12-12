@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class MonsterStat : Stat
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Level <= 0)
+        {
+            Speed = 3.0f;
+        }
     }
 }

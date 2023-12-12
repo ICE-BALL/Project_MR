@@ -15,6 +15,8 @@ public class Teleport : MonoBehaviour
 
     void Update()
     {
+        if (_Myplayer == null)
+            _Myplayer = GameObject.FindGameObjectWithTag("Player");
         if ((_Myplayer.transform.position - transform.position).magnitude < 3)
         {
             if (_pressE == null)

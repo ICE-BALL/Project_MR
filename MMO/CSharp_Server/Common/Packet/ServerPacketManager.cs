@@ -33,6 +33,12 @@ public class PacketManager
       
         _handle.Add((ushort)PacketID.Data, PacketHandler.DataHandler);
         _onRecv.Add((ushort)PacketID.Data, MakePacket<Data>);
+      
+        _handle.Add((ushort)PacketID.MonsterList, PacketHandler.MonsterListHandler);
+        _onRecv.Add((ushort)PacketID.MonsterList, MakePacket<MonsterList>);
+      
+        _handle.Add((ushort)PacketID.MonsterData, PacketHandler.MonsterDataHandler);
+        _onRecv.Add((ushort)PacketID.MonsterData, MakePacket<MonsterData>);
 
     }
 
