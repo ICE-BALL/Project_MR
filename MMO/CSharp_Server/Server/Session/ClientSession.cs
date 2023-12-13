@@ -12,6 +12,7 @@ namespace Server
     public class ClientSession : PacketSession
     {
         public int SessionId { get; set; }
+        public int Map_Zone { get; set; }
 
         public float PosX { get; set; } = 0;
         public float PosY { get; set; } = 0;
@@ -32,7 +33,9 @@ namespace Server
 
         public override void OnConnect(EndPoint endPoint)
         {
-            LevelSystem();
+            Init();
+            
+
             Console.WriteLine($"Connected to {endPoint}");
             Program.Room.Enter(this);
         }
@@ -82,6 +85,12 @@ namespace Server
         public override void OnSend(int numOfbytes)
         {
             //Console.WriteLine($"Sended {numOfbytes} bytes");
+        }
+
+        public void Init()
+        {
+            LevelSystem();
+            GameManager.Instance.SetMap(this);
         }
 
         public void LevelSystem()

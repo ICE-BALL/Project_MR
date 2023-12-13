@@ -42,6 +42,7 @@ namespace Server
                     {
                         IsSelf = (s == session),
                         PlayerId = s.SessionId,
+                        Map_Zone = s.Map_Zone,
                         PosX = s.PosX,
                         PosY = s.PosY,
                         PosZ = s.PosZ,
@@ -57,6 +58,7 @@ namespace Server
 
                 Data data = new Data();
                 data.PlayerId = session.SessionId;
+                data.Map_Zone = session.Map_Zone;
                 data.Level = session.Level;
                 data.MaxHp = session.MaxHp;
                 data.Hp = session.Hp;
@@ -71,6 +73,7 @@ namespace Server
                 {
                     BroadCastEnter enter = new BroadCastEnter();
                     enter.PlayerId = session.SessionId;
+                    enter.Map_Zone = session.Map_Zone;
                     enter.PosX = session.PosX;
                     enter.PosY = session.PosY;
                     enter.PosZ = session.PosZ;
@@ -92,6 +95,7 @@ namespace Server
             {
                 BroadCastLeave bl = new BroadCastLeave();
                 bl.PlayerId = s.SessionId;
+                bl.Map_Zone = s.Map_Zone;
 
                 BroadCast(bl.Write());
 

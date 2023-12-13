@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     public void OnHit()
     {
         RaycastHit hit;
-        
+
         if (Physics.Raycast(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), out hit, _attackRange, _attackMask))
         {
             if (hit.collider.gameObject.layer == LayerMask.GetMask("Player"))

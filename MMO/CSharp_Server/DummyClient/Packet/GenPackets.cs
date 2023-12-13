@@ -40,6 +40,7 @@ public class PlayerList : IPacket
 	public class Player
 	{
 	    public int PlayerId;
+		public int Map_Zone;
 		public bool IsSelf;
 		public float PosX;
 		public float PosY;
@@ -52,6 +53,8 @@ public class PlayerList : IPacket
 	    public void Read(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        this.PlayerId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+			count += sizeof(int);
+			this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 			count += sizeof(int);
 			this.IsSelf = BitConverter.ToBoolean(segment.Array, segment.Offset + count);
 			count += sizeof(bool);
@@ -73,6 +76,8 @@ public class PlayerList : IPacket
 	    public void Write(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        Array.Copy(BitConverter.GetBytes(PlayerId), 0, segment.Array, segment.Offset + count, sizeof(int));
+			count += sizeof(int);
+			Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 			count += sizeof(int);
 			Array.Copy(BitConverter.GetBytes(IsSelf), 0, segment.Array, segment.Offset + count, sizeof(bool));
 			count += sizeof(bool);
@@ -137,6 +142,7 @@ public class BroadCastEnter : IPacket
     public ushort Protocol { get { return (ushort)PacketID.BroadCastEnter; } }
 
     public int PlayerId;
+	public int Map_Zone;
 	public float PosX;
 	public float PosY;
 	public float PosZ;
@@ -152,6 +158,8 @@ public class BroadCastEnter : IPacket
         count += sizeof(ushort);
 
         this.PlayerId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.PosX = BitConverter.ToSingle(segment.Array, segment.Offset + count);
 		count += sizeof(float);
@@ -178,6 +186,8 @@ public class BroadCastEnter : IPacket
 
         Array.Copy(BitConverter.GetBytes(PlayerId), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(PosX), 0, segment.Array, segment.Offset + count, sizeof(float));
 		count += sizeof(float);
 		Array.Copy(BitConverter.GetBytes(PosY), 0, segment.Array, segment.Offset + count, sizeof(float));
@@ -203,6 +213,7 @@ public class BroadCastLeave : IPacket
     public ushort Protocol { get { return (ushort)PacketID.BroadCastLeave; } }
 
     public int PlayerId;
+	public int Map_Zone;
 	
 
     public void Read(ArraySegment<byte> segment)
@@ -212,6 +223,8 @@ public class BroadCastLeave : IPacket
         count += sizeof(ushort);
 
         this.PlayerId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		
     }
@@ -225,6 +238,8 @@ public class BroadCastLeave : IPacket
         count += sizeof(ushort);
 
         Array.Copy(BitConverter.GetBytes(PlayerId), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
 		
 
@@ -240,6 +255,7 @@ public class PlayerMove : IPacket
 
     public int PlayerId;
 	public int StateConvertNum;
+	public int Map_Zone;
 	public float PosX;
 	public float PosY;
 	public float PosZ;
@@ -257,6 +273,8 @@ public class PlayerMove : IPacket
         this.PlayerId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.StateConvertNum = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.PosX = BitConverter.ToSingle(segment.Array, segment.Offset + count);
 		count += sizeof(float);
@@ -285,6 +303,8 @@ public class PlayerMove : IPacket
 		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(StateConvertNum), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(PosX), 0, segment.Array, segment.Offset + count, sizeof(float));
 		count += sizeof(float);
 		Array.Copy(BitConverter.GetBytes(PosY), 0, segment.Array, segment.Offset + count, sizeof(float));
@@ -310,6 +330,7 @@ public class Data : IPacket
     public ushort Protocol { get { return (ushort)PacketID.Data; } }
 
     public int PlayerId;
+	public int Map_Zone;
 	public int Level;
 	public int MaxHp;
 	public float Hp;
@@ -327,6 +348,8 @@ public class Data : IPacket
         count += sizeof(ushort);
 
         this.PlayerId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.Level = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
@@ -356,6 +379,8 @@ public class Data : IPacket
         count += sizeof(ushort);
 
         Array.Copy(BitConverter.GetBytes(PlayerId), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(Level), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
@@ -389,6 +414,7 @@ public class MonsterList : IPacket
 	public class Monsters
 	{
 	    public int MonsterId;
+		public int Map_Zone;
 		public float PosX;
 		public float PosY;
 		public float PosZ;
@@ -400,6 +426,8 @@ public class MonsterList : IPacket
 	    public void Read(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        this.MonsterId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+			count += sizeof(int);
+			this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 			count += sizeof(int);
 			this.PosX = BitConverter.ToSingle(segment.Array, segment.Offset + count);
 			count += sizeof(float);
@@ -419,6 +447,8 @@ public class MonsterList : IPacket
 	    public void Write(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        Array.Copy(BitConverter.GetBytes(MonsterId), 0, segment.Array, segment.Offset + count, sizeof(int));
+			count += sizeof(int);
+			Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 			count += sizeof(int);
 			Array.Copy(BitConverter.GetBytes(PosX), 0, segment.Array, segment.Offset + count, sizeof(float));
 			count += sizeof(float);
@@ -481,6 +511,7 @@ public class MonsterData : IPacket
     public ushort Protocol { get { return (ushort)PacketID.MonsterData; } }
 
     public int MonsterId;
+	public int Map_Zone;
 	public int Level;
 	public int MaxHp;
 	public float Hp;
@@ -498,6 +529,8 @@ public class MonsterData : IPacket
         count += sizeof(ushort);
 
         this.MonsterId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.Level = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
@@ -527,6 +560,8 @@ public class MonsterData : IPacket
         count += sizeof(ushort);
 
         Array.Copy(BitConverter.GetBytes(MonsterId), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(Level), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);

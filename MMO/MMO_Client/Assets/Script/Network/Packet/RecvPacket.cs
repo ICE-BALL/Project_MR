@@ -29,10 +29,11 @@ public class RecvPacket
 
         foreach (PlayerList.Player p in pL.players)
         {
-            GameObject go = Managers.Resource.Instantiate("Player");
+            GameObject go;
 
             if (p.IsSelf)
             {
+                go = Managers.Resource.Instantiate("Player");
                 go.name = "MyPlayer";
                 go.tag = "Player";
                 MyPlayer myPlayer = go.AddComponent<MyPlayer>();
@@ -47,14 +48,18 @@ public class RecvPacket
             }
             else
             {
-                Player player = go.AddComponent<Player>();
-                Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
-                player.gameObject.AddComponent<PlayerStat>();
-                player.PlayerId = p.PlayerId;
-                player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
-                player.transform.rotation = Quaternion.Euler(new Vector3(p.RotX, p.RotY, p.RotZ));
-                NetworkManager._players.Add(p.PlayerId, player);
-                PlayerManager.Instance._players.Add(player.gameObject);
+                if (p.Map_Zone == Managers.Game.Map_Zone)
+                {
+                    go = Managers.Resource.Instantiate("Player");
+                    Player player = go.AddComponent<Player>();
+                    Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
+                    player.gameObject.AddComponent<PlayerStat>();
+                    player.PlayerId = p.PlayerId;
+                    player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
+                    player.transform.rotation = Quaternion.Euler(new Vector3(p.RotX, p.RotY, p.RotZ));
+                    NetworkManager._players.Add(p.PlayerId, player);
+                    PlayerManager.Instance._players.Add(player.gameObject);
+                }
             }
         }
     }
@@ -63,28 +68,35 @@ public class RecvPacket
     {
         BroadCastEnter enter = packet as BroadCastEnter;
 
-        GameObject go = Managers.Resource.Instantiate("Player");
+        GameObject go;
 
-        Player player = go.AddComponent<Player>();
-        Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
-        player.gameObject.AddComponent<PlayerStat>();
-        player.PlayerId = enter.PlayerId;
-        player.transform.position = new Vector3(enter.PosX, enter.PosY, enter.PosZ);
-        player.transform.rotation = Quaternion.Euler(new Vector3(enter.RotX, enter.RotY, enter.RotZ));
-        NetworkManager._players.Add(enter.PlayerId, player);
-        PlayerManager.Instance._players.Add(player.gameObject);
+        if (enter.Map_Zone == Managers.Game.Map_Zone)
+        {
+            go = Managers.Resource.Instantiate("Player");
+            Player player = go.AddComponent<Player>();
+            Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
+            player.gameObject.AddComponent<PlayerStat>();
+            player.PlayerId = enter.PlayerId;
+            player.transform.position = new Vector3(enter.PosX, enter.PosY, enter.PosZ);
+            player.transform.rotation = Quaternion.Euler(new Vector3(enter.RotX, enter.RotY, enter.RotZ));
+            NetworkManager._players.Add(enter.PlayerId, player);
+            PlayerManager.Instance._players.Add(player.gameObject);
+        }
     }
 
     public void MoveOtherPlayer(IPacket packet)
     {
         PlayerMove pm = packet as PlayerMove;
 
-        Player p;
-        if (NetworkManager._players.TryGetValue(pm.PlayerId, out p) == true)
+        if (pm.Map_Zone == Managers.Game.Map_Zone)
         {
-            p.gameObject.transform.position = new Vector3(pm.PosX, pm.PosY, pm.PosZ);
-            p.gameObject.transform.rotation = Quaternion.Euler(new Vector3(pm.RotX, pm.RotY, pm.RotZ));
-            p.PlayerState(pm.StateConvertNum);
+            Player p;
+            if (NetworkManager._players.TryGetValue(pm.PlayerId, out p) == true)
+            {
+                p.gameObject.transform.position = new Vector3(pm.PosX, pm.PosY, pm.PosZ);
+                p.gameObject.transform.rotation = Quaternion.Euler(new Vector3(pm.RotX, pm.RotY, pm.RotZ));
+                p.PlayerState(pm.StateConvertNum);
+            }
         }
     }
 
@@ -92,13 +104,16 @@ public class RecvPacket
     {
         BroadCastLeave leave = packet as BroadCastLeave;
 
-        Player p;
-        if (NetworkManager._players.TryGetValue(leave.PlayerId, out p))
+        if (leave.Map_Zone == Managers.Game.Map_Zone)
         {
-            Managers.Resource.Destroy(p.gameObject);
-            PlayerManager.Instance._players.Remove(p.gameObject);
+            Player p;
+            if (NetworkManager._players.TryGetValue(leave.PlayerId, out p))
+            {
+                Managers.Resource.Destroy(p.gameObject);
+                PlayerManager.Instance._players.Remove(p.gameObject);
 
-            NetworkManager._players.Remove(leave.PlayerId);
+                NetworkManager._players.Remove(leave.PlayerId);
+            }
         }
 
     }
@@ -122,6 +137,8 @@ public class RecvPacket
         }
         else
         {
+            //if (data.Map_Zone == Managers.Game.Map_Zone)
+            //{
             Player p;
             if (NetworkManager._players.TryGetValue(data.PlayerId, out p))
             {
@@ -136,6 +153,7 @@ public class RecvPacket
                 stat.Speed = data.Speed;
                 stat.PlayerId = data.PlayerId;
             }
+            //}
         }
     }
 

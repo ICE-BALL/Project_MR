@@ -22,6 +22,7 @@ public class MyPlayer : Player
     {
         PlayerMove movePacket = new PlayerMove();
         movePacket.PlayerId = PlayerId;
+        movePacket.Map_Zone = Managers.Game.Map_Zone;
         movePacket.PosX = transform.position.x;
         movePacket.PosY = transform.position.y;
         movePacket.PosZ = transform.position.z;
@@ -34,6 +35,7 @@ public class MyPlayer : Player
 
         Data data = new Data();
         data.PlayerId = PlayerId;
+        data.Map_Zone = Managers.Game.Map_Zone;
         data.Level = _stat.Level;
         data.MaxHp = _stat.MaxHp;
         data.Hp = _stat.Hp;

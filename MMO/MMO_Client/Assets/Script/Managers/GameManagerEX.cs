@@ -9,6 +9,7 @@ public class GameManagerEX
 {
     GameObject _myPlayer;
     GameObject _sceneUI;
+    public int Map_Zone;
 
     public void Start()
     {
@@ -21,6 +22,8 @@ public class GameManagerEX
 
     public void Game_001(Scene scene, LoadSceneMode mode)
     {
+        Map_Zone = (int)define.Map_Zone.Map_001;
+
         if (GameObject.Find("Player") != null)
             Managers.Resource.Destroy(GameObject.Find("Player"));
         if (GameObject.Find("Main_UI") == null)

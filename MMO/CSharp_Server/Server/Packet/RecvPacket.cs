@@ -45,6 +45,8 @@ namespace Server
                     Program.Room._sessions[i].RotX = m.RotX;
                     Program.Room._sessions[i].RotY = m.RotY;
                     Program.Room._sessions[i].RotZ = m.RotZ;
+
+                    Program.Room._sessions[i].Map_Zone = m.Map_Zone;
                 }
             }
 
@@ -57,6 +59,7 @@ namespace Server
             pm.RotY = m.RotY;
             pm.RotZ = m.RotZ;
             pm.PlayerId = m.PlayerId;
+            pm.Map_Zone = m.Map_Zone;
             pm.StateConvertNum = m.StateConvertNum;
             Program.Room.BroadCast(pm.Write(), s);
         }
@@ -65,6 +68,8 @@ namespace Server
         {
             Data data = packet as Data;
 
+            s.SessionId = data.PlayerId;
+            s.Map_Zone = data.Map_Zone;
             s.Level = data.Level;
             s.MaxHp = data.MaxHp;
             s.Hp = data.Hp;

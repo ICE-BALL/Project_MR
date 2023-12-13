@@ -6,12 +6,15 @@ public class Player : MonoBehaviour
 {
     public int PlayerId;
     int _state = 0;
+    LayerMask _attackMask;
+    float _attackRange = 1.5f;
 
     public Animator _anim;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _attackMask = LayerMask.GetMask("Creature") | LayerMask.GetMask("Player");
     }
 
     void Update()
@@ -40,6 +43,19 @@ public class Player : MonoBehaviour
         _state = StateSpeed;
     }
 
+    //public void OnHit()
+    //{
+    //    RaycastHit hit;
+
+    //    if (Physics.Raycast(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), out hit, _attackRange, _attackMask))
+    //    {
+    //        if (hit.collider.gameObject.layer == LayerMask.GetMask("Player"))
+    //            hit.collider.gameObject.GetComponent<Player>().HitEvent(transform.gameObject);
+    //        else if (hit.collider.gameObject.layer == LayerMask.GetMask("Creature"))
+    //            hit.collider.gameObject.GetComponent<Creature>().HitEvent(transform.gameObject);
+    //    }
+    //}
+
     public void HitEvent(GameObject obj)
     {
         PlayerStat stat = gameObject.GetComponent<PlayerStat>();
@@ -53,6 +69,7 @@ public class Player : MonoBehaviour
         data.Mp = stat.Mp;
         data.Speed = stat.Speed;
         data.PlayerId = stat.PlayerId;
+        data.Map_Zone = Managers.Game.Map_Zone;
         NetworkManager._session.Send(data.Write());
     }
 }

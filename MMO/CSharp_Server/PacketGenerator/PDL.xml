@@ -3,6 +3,7 @@
 	<packet name="PlayerList">
 		<list name="player">
 			<int name="PlayerId"/>
+			<int name="Map_Zone"/>
 			<bool name="IsSelf"/>
 			<float name="PosX"/>
 			<float name="PosY"/>
@@ -14,6 +15,7 @@
 	</packet>
 	<packet name="BroadCastEnter">
 		<int name="PlayerId"/>
+		<int name="Map_Zone"/>
 		<float name="PosX"/>
 		<float name="PosY"/>
 		<float name="PosZ"/>
@@ -23,10 +25,12 @@
 	</packet>
 	<packet name="BroadCastLeave">
 		<int name="PlayerId"/>
+		<int name="Map_Zone"/>
 	</packet>
 	<packet name="PlayerMove">
 		<int name="PlayerId"/>
 		<int name="StateConvertNum"/>
+		<int name="Map_Zone"/>
 		<float name="PosX"/>
 		<float name="PosY"/>
 		<float name="PosZ"/>
@@ -36,6 +40,7 @@
 	</packet>
 	<packet name="Data">
 		<int name="PlayerId"/>
+		<int name="Map_Zone"/>
 		<int name="Level"/>
 		<int name="MaxHp"/>
 		<float name ="Hp"/>
@@ -48,6 +53,7 @@
 	<packet name="MonsterList">
 		<list name="monsters">
 			<int name="MonsterId"/>
+			<int name="Map_Zone"/>
 			<float name="PosX"/>
 			<float name="PosY"/>
 			<float name="PosZ"/>
@@ -58,6 +64,7 @@
 	</packet>
 	<packet name="MonsterData">
 		<int name="MonsterId"/>
+		<int name="Map_Zone"/>
 		<int name="Level"/>
 		<int name="MaxHp"/>
 		<float name ="Hp"/>
