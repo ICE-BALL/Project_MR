@@ -6,15 +6,15 @@ public class Player : MonoBehaviour
 {
     public int PlayerId;
     int _state = 0;
-    LayerMask _attackMask;
-    float _attackRange = 1.5f;
+    //LayerMask _attackMask;
+    //float _attackRange = 1.5f;
 
     public Animator _anim;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
-        _attackMask = LayerMask.GetMask("Creature") | LayerMask.GetMask("Player");
+        //_attackMask = LayerMask.GetMask("Creature") | LayerMask.GetMask("Player");
     }
 
     void Update()

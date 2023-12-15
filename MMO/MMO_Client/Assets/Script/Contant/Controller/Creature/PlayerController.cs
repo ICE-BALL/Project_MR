@@ -126,9 +126,9 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), out hit, _attackRange, _attackMask))
         {
-            if (hit.collider.gameObject.layer == LayerMask.GetMask("Player"))
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                 hit.collider.gameObject.GetComponent<Player>().HitEvent(transform.gameObject);
-            else if (hit.collider.gameObject.layer == LayerMask.GetMask("Creature"))
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Creature"))
                 hit.collider.gameObject.GetComponent<Creature>().HitEvent(transform.gameObject);
         }
     }

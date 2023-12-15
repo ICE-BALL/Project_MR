@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - Managers
     - MonsterStat
     - NetworkManager
+    - Player
     - PlayerController
     - PlayerStat
     - SelectServerButton
@@ -22,10 +23,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -111,6 +110,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1548}
     - Class: 114
       Script: {instanceID: 1796}
+    - Class: 114
+      Script: {instanceID: 2194}
     - Class: 114
       Script: {instanceID: 2650}
     - Class: 114
@@ -251,33 +252,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 31882}
+      Script: {instanceID: 41926}
     - Class: 114
-      Script: {instanceID: 31884}
+      Script: {instanceID: 41928}
     - Class: 114
-      Script: {instanceID: 31886}
+      Script: {instanceID: 41930}
     - Class: 114
-      Script: {instanceID: 31896}
+      Script: {instanceID: 41940}
     - Class: 114
-      Script: {instanceID: 31898}
+      Script: {instanceID: 41942}
     - Class: 114
-      Script: {instanceID: 31900}
+      Script: {instanceID: 41944}
     - Class: 114
-      Script: {instanceID: 31902}
+      Script: {instanceID: 41946}
     - Class: 114
-      Script: {instanceID: 31910}
+      Script: {instanceID: 41954}
     - Class: 114
-      Script: {instanceID: 31912}
+      Script: {instanceID: 41956}
     - Class: 114
-      Script: {instanceID: 31914}
+      Script: {instanceID: 41958}
     - Class: 114
-      Script: {instanceID: 38264}
+      Script: {instanceID: 47696}
     - Class: 114
-      Script: {instanceID: 38272}
+      Script: {instanceID: 47704}
     - Class: 114
-      Script: {instanceID: 38274}
+      Script: {instanceID: 47706}
     - Class: 114
-      Script: {instanceID: 38276}
+      Script: {instanceID: 47708}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
