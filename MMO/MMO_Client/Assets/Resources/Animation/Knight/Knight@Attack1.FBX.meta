@@ -504,7 +504,7 @@ ModelImporter:
       - time: 0.40266985
         functionName: OnHit
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: f87cd4529653f6c418a6ec48a1662d94, type: 3}
+        objectReferenceParameter: {fileID: 11500000, guid: bee5886b9ed3e54459da952c73fa9e0a, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

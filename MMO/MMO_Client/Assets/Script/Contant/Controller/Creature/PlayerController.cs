@@ -7,16 +7,12 @@ public class PlayerController : MonoBehaviour
     PlayerStat _stat;
     Vector3[] _dirs = new Vector3[4];
     GameObject _camera;
-    LayerMask _attackMask;
     Animator _anim;
-
-    float _attackRange = 1.5f;
 
     public define.PlayerState _state = define.PlayerState.Idle;
 
     void Start()
     {
-        _attackMask = LayerMask.GetMask("Creature") | LayerMask.GetMask("Player");
         _stat = GetComponent<PlayerStat>();
         _camera = Camera.main.gameObject;
         _anim = GetComponent<Animator>();
@@ -116,20 +112,6 @@ public class PlayerController : MonoBehaviour
         else if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
         {
             _state = define.PlayerState.Idle;
-        }
-
-    }
-
-    public void OnHit()
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), out hit, _attackRange, _attackMask))
-        {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-                hit.collider.gameObject.GetComponent<Player>().HitEvent(transform.gameObject);
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Creature"))
-                hit.collider.gameObject.GetComponent<Creature>().HitEvent(transform.gameObject);
         }
     }
 }

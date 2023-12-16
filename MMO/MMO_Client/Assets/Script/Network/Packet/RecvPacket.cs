@@ -137,23 +137,23 @@ public class RecvPacket
         }
         else
         {
-            //if (data.Map_Zone == Managers.Game.Map_Zone)
-            //{
-            Player p;
-            if (NetworkManager._players.TryGetValue(data.PlayerId, out p))
+            if (data.Map_Zone == Managers.Game.Map_Zone)
             {
-                PlayerStat stat = p.gameObject.GetComponent<PlayerStat>();
-                stat.Level = data.Level;
-                stat.MaxHp = data.MaxHp;
-                stat.Hp = data.Hp;
-                stat.MaxMp = data.MaxMp;
-                stat.Mp = data.Mp;
-                stat.Attack = data.Attack;
-                stat.AttackSpeed = data.AttackSpeed;
-                stat.Speed = data.Speed;
-                stat.PlayerId = data.PlayerId;
+                Player p;
+                if (NetworkManager._players.TryGetValue(data.PlayerId, out p))
+                {
+                    PlayerStat stat = p.gameObject.GetComponent<PlayerStat>();
+                    stat.Level = data.Level;
+                    stat.MaxHp = data.MaxHp;
+                    stat.Hp = data.Hp;
+                    stat.MaxMp = data.MaxMp;
+                    stat.Mp = data.Mp;
+                    stat.Attack = data.Attack;
+                    stat.AttackSpeed = data.AttackSpeed;
+                    stat.Speed = data.Speed;
+                    stat.PlayerId = data.PlayerId;
+                }
             }
-            //}
         }
     }
 
