@@ -19,8 +19,16 @@ public class NetworkManager : MonoBehaviour
         {
             for (int i = 0; i < PlayerManager.Instance._recvEvents.Count; i++)
             {
-                IPacket p = PlayerManager.Instance._recvEventBuffers.Dequeue();
-                PlayerManager.Instance._recvEvents.Dequeue().Invoke(p);
+                IPacket p;
+                PlayerManager.Instance._recvEventBuffers.TryDequeue(out p);
+                if (p != null)
+                {
+                    System.Action<IPacket> a;
+                    PlayerManager.Instance._recvEvents.TryDequeue(out a);
+                    if (a != null)
+                        a.Invoke(p);
+                }
+                
             }
         }
     }

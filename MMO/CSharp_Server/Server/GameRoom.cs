@@ -97,7 +97,7 @@ namespace Server
                 bl.PlayerId = s.SessionId;
                 bl.Map_Zone = s.Map_Zone;
 
-                BroadCast(bl.Write());
+                BroadCast(bl.Write(), s);
 
                 _sessions.Remove(s);
             }

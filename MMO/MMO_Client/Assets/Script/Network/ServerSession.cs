@@ -56,6 +56,9 @@ public class ServerSession : PacketSession
                 PlayerManager.Instance._recvEvents.Enqueue(RecvPacket.Instance.SetData);
                 PlayerManager.Instance._recvEventBuffers.Enqueue(data);
                 break;
+            default:
+                Debug.Log("Default Packet ID");
+                break;
         }
     }
 

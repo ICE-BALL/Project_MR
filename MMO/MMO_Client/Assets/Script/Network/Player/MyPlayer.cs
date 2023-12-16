@@ -15,11 +15,6 @@ public class MyPlayer : Player
 
     void Update()
     {
-        SendPacket();
-    }
-
-    void SendPacket()
-    {
         PlayerMove movePacket = new PlayerMove();
         movePacket.PlayerId = PlayerId;
         movePacket.Map_Zone = Managers.Game.Map_Zone;
@@ -47,27 +42,5 @@ public class MyPlayer : Player
 
         NetworkManager._session.Send(data.Write());
         NetworkManager._session.Send(movePacket.Write());
-    }
-
-    IEnumerator CoSendPacket()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.025f);
-
-            PlayerMove movePacket = new PlayerMove();
-            movePacket.PlayerId = PlayerId;
-            movePacket.PosX = transform.position.x;
-            movePacket.PosY = transform.position.y;
-            movePacket.PosZ = transform.position.z;
-
-            movePacket.RotX = transform.eulerAngles.x;
-            movePacket.RotY = transform.eulerAngles.y;
-            movePacket.RotZ = transform.eulerAngles.z;
-
-            movePacket.StateConvertNum = (int)GetComponent<PlayerController>()._state;
-
-            NetworkManager._session.Send(movePacket.Write());
-        }
     }
 }
