@@ -93,13 +93,13 @@ namespace Server
         {
             lock (_lock)
             {
+                _sessions.Remove(s);
+
                 BroadCastLeave bl = new BroadCastLeave();
                 bl.PlayerId = s.SessionId;
                 bl.Map_Zone = s.Map_Zone;
 
-                BroadCast(bl.Write(), s);
-
-                _sessions.Remove(s);
+                BroadCast(bl.Write());
             }
         }
     }
