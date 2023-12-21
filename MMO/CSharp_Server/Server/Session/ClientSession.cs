@@ -11,6 +11,8 @@ namespace Server
 {
     public class ClientSession : PacketSession
     {
+        #region Data
+        #region Network Data
         public int SessionId { get; set; }
         public int Map_Zone { get; set; }
 
@@ -21,7 +23,8 @@ namespace Server
         public float RotX { get; set; } = 0;
         public float RotY { get; set; } = 0;
         public float RotZ { get; set; } = 0;
-
+        #endregion
+        #region Stat
         public int Level { get; set; }
         public int MaxHp { get; set; }
         public float Hp { get; set; }
@@ -30,6 +33,8 @@ namespace Server
         public float Attack { get; set; }
         public float AttackSpeed { get; set; }
         public float Speed { get; set; }
+        #endregion
+        #endregion
 
         public override void OnConnect(EndPoint endPoint)
         {
@@ -38,6 +43,8 @@ namespace Server
 
             Console.WriteLine($"Connected to {endPoint}");
             Program.Room.Enter(this);
+
+            GameManager.Instance.SetGame(this);
         }
 
         public override void OnDisconnect(EndPoint endPoint)

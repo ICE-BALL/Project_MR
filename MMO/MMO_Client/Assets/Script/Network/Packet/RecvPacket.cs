@@ -33,7 +33,7 @@ public class RecvPacket
 
             if (p.IsSelf)
             {
-                go = Managers.Resource.Instantiate("Player");
+                go = Managers.Resource.Instantiate("Game/Player");
                 go.name = "MyPlayer";
                 go.tag = "Player";
                 MyPlayer myPlayer = go.AddComponent<MyPlayer>();
@@ -50,7 +50,7 @@ public class RecvPacket
             {
                 if (p.Map_Zone == Managers.Game.Map_Zone)
                 {
-                    go = Managers.Resource.Instantiate("Player");
+                    go = Managers.Resource.Instantiate("Game/Player");
                     Player player = go.AddComponent<Player>();
                     Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
                     player.gameObject.AddComponent<PlayerStat>();
@@ -72,7 +72,7 @@ public class RecvPacket
 
         if (enter.Map_Zone == Managers.Game.Map_Zone)
         {
-            go = Managers.Resource.Instantiate("Player");
+            go = Managers.Resource.Instantiate("Game/Player");
             Player player = go.AddComponent<Player>();
             Managers.Resource.Instantiate("UI/UI_Scene/UI_HpBar", player.transform);
             player.gameObject.AddComponent<PlayerStat>();
@@ -154,6 +154,65 @@ public class RecvPacket
                     stat.PlayerId = data.PlayerId;
                 }
             }
+        }
+    }
+
+    public void SetMonsterData(IPacket packet)
+    {
+        MonsterData data = packet as MonsterData;
+
+        if (data.Map_Zone == Managers.Game.Map_Zone)
+        {
+            Creature creature;
+            if (NetworkManager._monsters.TryGetValue(data.MonsterId, out creature))
+            {
+                MonsterStat stat = creature.gameObject.GetComponent<MonsterStat>();
+                stat.Level = data.Level;
+                stat.MaxHp = data.MaxHp;
+                stat.Hp = data.Hp;
+                stat.MaxMp = data.MaxMp;
+                stat.Mp = data.Mp;
+                stat.Attack = data.Attack;
+                stat.AttackSpeed = data.AttackSpeed;
+                stat.Speed = data.Speed;
+                stat.MonsterId = data.MonsterId;
+            }
+        }
+    }
+
+    public void AddMonster(IPacket packet)
+    {
+        MonsterList mList = packet as MonsterList;
+
+        foreach (MonsterList.Monsters m in  mList.monsterss)
+        {
+            string monster = "";
+            switch (m.MonsterType)
+            {
+                case (int)define.MonsterTypes.Slime:
+                    monster = "Slime";
+                    break;
+                case (int)define.MonsterTypes.TurtleSlime:
+                    monster = "TurtleSlime";
+                    break;
+            }
+
+            GameObject go;
+            go = Managers.Resource.Instantiate($"Game/Monster/{monster}");
+            if (go == null)
+                return;
+
+            switch (m.MonsterType)
+            {
+                case (int)define.MonsterTypes.Slime:
+                    go.AddComponent<Slime>();
+                    break;
+                case (int)define.MonsterTypes.TurtleSlime:
+                    break;
+            }
+            go.transform.position = new Vector3(m.PosX, m.PosY, m.PosZ);
+            go.transform.rotation = Quaternion.Euler(new Vector3(m.RotX, m.RotY, m.RotZ));
+            NetworkManager._monsters.Add(m.MonsterId, go.GetComponent<Slime>());
         }
     }
 

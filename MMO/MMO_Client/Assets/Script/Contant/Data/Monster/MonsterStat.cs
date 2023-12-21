@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class MonsterStat : Stat
 {
-    private void Start()
-    {
-        if (Level <= 0)
-        {
-            Speed = 3.0f;
-        }
-    }
+    protected int _monsterId;
+
+    public int MonsterId { get { return _monsterId; } set { _monsterId = value; } }
 }

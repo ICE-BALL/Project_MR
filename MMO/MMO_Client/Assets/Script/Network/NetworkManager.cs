@@ -12,6 +12,7 @@ public class NetworkManager : MonoBehaviour
     public static ServerSession _session = new ServerSession();
 
     public static Dictionary<int, Player> _players = new Dictionary<int, Player>();
+    public static Dictionary<int, Creature> _monsters = new Dictionary<int, Creature>();
 
     void Update()
     {

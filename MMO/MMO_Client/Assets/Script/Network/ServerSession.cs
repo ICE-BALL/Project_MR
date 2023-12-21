@@ -56,6 +56,18 @@ public class ServerSession : PacketSession
                 PlayerManager.Instance._recvEvents.Enqueue(RecvPacket.Instance.SetData);
                 PlayerManager.Instance._recvEventBuffers.Enqueue(data);
                 break;
+            case (ushort)PacketID.MonsterList:
+                MonsterList Mlist = new MonsterList();
+                Mlist.Read(Buffer);
+                PlayerManager.Instance._recvEvents.Enqueue(RecvPacket.Instance.AddMonster);
+                PlayerManager.Instance._recvEventBuffers.Enqueue(Mlist);
+                break;
+            case (ushort)PacketID.MonsterData:
+                MonsterData Mdata = new MonsterData();
+                Mdata.Read(Buffer);
+                PlayerManager.Instance._recvEvents.Enqueue(RecvPacket.Instance.SetMonsterData);
+                PlayerManager.Instance._recvEventBuffers.Enqueue(Mdata);
+                break;
             default:
                 Debug.Log("Default Packet ID");
                 break;

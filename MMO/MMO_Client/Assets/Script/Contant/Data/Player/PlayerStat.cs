@@ -39,6 +39,7 @@ public class PlayerStat : Stat
             PlayerStat stat = gameObject.GetComponent<PlayerStat>();
             stat.Hp -= obj.GetComponent<Stat>().Attack;
             Data data = new Data();
+            data.Level = stat.Level;
             data.MaxHp = stat.MaxHp;
             data.Attack = stat.Attack;
             data.AttackSpeed = stat.AttackSpeed;

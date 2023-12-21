@@ -53,6 +53,7 @@
 	<packet name="MonsterList">
 		<list name="monsters">
 			<int name="MonsterId"/>
+			<int name="MonsterType"/>
 			<int name="Map_Zone"/>
 			<float name="PosX"/>
 			<float name="PosY"/>
@@ -64,6 +65,7 @@
 	</packet>
 	<packet name="MonsterData">
 		<int name="MonsterId"/>
+		<int name="MonsterType"/>
 		<int name="Map_Zone"/>
 		<int name="Level"/>
 		<int name="MaxHp"/>

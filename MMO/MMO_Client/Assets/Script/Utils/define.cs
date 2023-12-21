@@ -30,4 +30,10 @@ public class define
         Walk,
         Attack,
     }
+
+    public enum MonsterTypes
+    {
+        Slime,
+        TurtleSlime,
+    }
 }

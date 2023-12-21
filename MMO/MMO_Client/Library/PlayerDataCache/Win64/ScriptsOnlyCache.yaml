@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - PlayerController
     - PlayerStat
     - SelectServerButton
-    - Slime
     - SlimeController
     - Teleport
     Unity.Rider.Editor.dll:
@@ -88,6 +87,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -115,11 +116,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2726}
-    - Class: 114
       Script: {instanceID: 2732}
-    - Class: 114
-      Script: {instanceID: 3854}
     - Class: 114
       Script: {instanceID: 3930}
     - Class: 114
@@ -128,8 +125,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5172}
     - Class: 114
       Script: {instanceID: 5204}
-    - Class: 114
-      Script: {instanceID: 5548}
     - Class: 114
       Script: {instanceID: 5914}
     - Class: 114
@@ -144,8 +139,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 7750}
     - Class: 115
       Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 137
@@ -155,8 +148,6 @@ ScriptsOnlyBuild:
     - Class: 156
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -232,6 +223,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3180}
     - Class: 114
+      Script: {instanceID: 3854}
+    - Class: 114
       Script: {instanceID: 4024}
     - Class: 114
       Script: {instanceID: 5204}
@@ -239,6 +232,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5296}
     - Class: 114
       Script: {instanceID: 5450}
+    - Class: 114
+      Script: {instanceID: 5548}
     - Class: 114
       Script: {instanceID: 5580}
     - Class: 114
@@ -252,44 +247,48 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 31886}
+      Script: {instanceID: 31946}
     - Class: 114
-      Script: {instanceID: 31888}
+      Script: {instanceID: 31948}
     - Class: 114
-      Script: {instanceID: 31890}
+      Script: {instanceID: 31950}
     - Class: 114
-      Script: {instanceID: 31900}
+      Script: {instanceID: 31960}
     - Class: 114
-      Script: {instanceID: 31902}
+      Script: {instanceID: 31962}
     - Class: 114
-      Script: {instanceID: 31904}
+      Script: {instanceID: 31964}
     - Class: 114
-      Script: {instanceID: 31906}
+      Script: {instanceID: 31966}
     - Class: 114
-      Script: {instanceID: 31914}
+      Script: {instanceID: 31974}
     - Class: 114
-      Script: {instanceID: 31916}
+      Script: {instanceID: 31976}
     - Class: 114
-      Script: {instanceID: 31918}
+      Script: {instanceID: 31978}
     - Class: 114
-      Script: {instanceID: 38268}
+      Script: {instanceID: 38328}
     - Class: 114
-      Script: {instanceID: 38276}
+      Script: {instanceID: 38336}
     - Class: 114
-      Script: {instanceID: 38278}
+      Script: {instanceID: 38338}
     - Class: 114
-      Script: {instanceID: 38280}
+      Script: {instanceID: 38340}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 134
       Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}

@@ -414,6 +414,7 @@ public class MonsterList : IPacket
 	public class Monsters
 	{
 	    public int MonsterId;
+		public int MonsterType;
 		public int Map_Zone;
 		public float PosX;
 		public float PosY;
@@ -426,6 +427,8 @@ public class MonsterList : IPacket
 	    public void Read(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        this.MonsterId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+			count += sizeof(int);
+			this.MonsterType = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 			count += sizeof(int);
 			this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 			count += sizeof(int);
@@ -447,6 +450,8 @@ public class MonsterList : IPacket
 	    public void Write(ArraySegment<byte> segment, ref ushort count)
 	    {
 	        Array.Copy(BitConverter.GetBytes(MonsterId), 0, segment.Array, segment.Offset + count, sizeof(int));
+			count += sizeof(int);
+			Array.Copy(BitConverter.GetBytes(MonsterType), 0, segment.Array, segment.Offset + count, sizeof(int));
 			count += sizeof(int);
 			Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 			count += sizeof(int);
@@ -511,6 +516,7 @@ public class MonsterData : IPacket
     public ushort Protocol { get { return (ushort)PacketID.MonsterData; } }
 
     public int MonsterId;
+	public int MonsterType;
 	public int Map_Zone;
 	public int Level;
 	public int MaxHp;
@@ -529,6 +535,8 @@ public class MonsterData : IPacket
         count += sizeof(ushort);
 
         this.MonsterId = BitConverter.ToInt32(segment.Array, segment.Offset + count);
+		count += sizeof(int);
+		this.MonsterType = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
 		this.Map_Zone = BitConverter.ToInt32(segment.Array, segment.Offset + count);
 		count += sizeof(int);
@@ -560,6 +568,8 @@ public class MonsterData : IPacket
         count += sizeof(ushort);
 
         Array.Copy(BitConverter.GetBytes(MonsterId), 0, segment.Array, segment.Offset + count, sizeof(int));
+		count += sizeof(int);
+		Array.Copy(BitConverter.GetBytes(MonsterType), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
 		Array.Copy(BitConverter.GetBytes(Map_Zone), 0, segment.Array, segment.Offset + count, sizeof(int));
 		count += sizeof(int);
