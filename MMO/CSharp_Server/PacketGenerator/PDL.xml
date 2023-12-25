@@ -76,4 +76,14 @@
 		<float name="AttackSpeed"/>
 		<float name="Speed"/>
 	</packet>
+	<packet name="MonsterMove">
+		<int name="MonsterId"/>
+		<int name="Map_Zone"/>
+		<float name="PosX"/>
+		<float name="PosY"/>
+		<float name="PosZ"/>
+		<float name="RotX"/>
+		<float name="RotY"/>
+		<float name="RotZ"/>
+	</packet>
 </PDL>

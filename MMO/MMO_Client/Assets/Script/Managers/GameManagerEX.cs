@@ -41,4 +41,36 @@ public class GameManagerEX
 
     }
 
+    public void SendMovePacket()
+    {
+        if (NetworkManager._session.SessionId == 1)
+        {
+            MonsterList mL = new MonsterList();
+            for (int i = 1; i <= NetworkManager._monsters.Count; i++)
+            {
+                Creature creature;
+                if (NetworkManager._monsters.TryGetValue(i, out creature))
+                {
+                    Slime s = creature as Slime;
+
+                    MonsterList.Monsters m = new MonsterList.Monsters();
+                    m.Map_Zone = Managers.Game.Map_Zone;
+                    m.MonsterId = s._stat.MonsterId;
+                    m.MonsterType = (int)define.MonsterTypes.Slime;
+                    m.PosX = s.gameObject.transform.position.x;
+                    m.PosY = s.gameObject.transform.position.y;
+                    m.PosZ = s.gameObject.transform.position.z;
+
+                    m.RotX = s.gameObject.transform.eulerAngles.x;
+                    m.RotX = s.gameObject.transform.eulerAngles.y;
+                    m.RotX = s.gameObject.transform.eulerAngles.z;
+
+                    mL.monsterss.Add(m);
+                }
+            }
+            NetworkManager._session.Send(mL.Write());
+
+        }
+    }
+
 }

@@ -44,6 +44,7 @@ public class RecvPacket
                 myPlayer.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
                 myPlayer.transform.rotation = Quaternion.Euler(new Vector3(p.RotX, p.RotY, p.RotZ));
                 _myPlayer = myPlayer;
+                NetworkManager._session.SessionId = p.PlayerId;
                 PlayerManager.Instance._players.Add(_myPlayer.gameObject);
             }
             else
@@ -184,36 +185,67 @@ public class RecvPacket
     {
         MonsterList mList = packet as MonsterList;
 
-        foreach (MonsterList.Monsters m in  mList.monsterss)
+        if (NetworkManager._monsters.Count > 0)
         {
-            string monster = "";
-            switch (m.MonsterType)
+            for (int i = 0; i <= NetworkManager._monsters.Count; i++)
             {
-                case (int)define.MonsterTypes.Slime:
-                    monster = "Slime";
-                    break;
-                case (int)define.MonsterTypes.TurtleSlime:
-                    monster = "TurtleSlime";
-                    break;
-            }
+                if (mList.monsterss.Count <= i)
+                    return;
+                if (mList.monsterss[i] == null || NetworkManager._monsters.Count != mList.monsterss.Count)
+                    continue;
 
-            GameObject go;
-            go = Managers.Resource.Instantiate($"Game/Monster/{monster}");
-            if (go == null)
-                return;
+                if (mList.monsterss[i].Map_Zone != Managers.Game.Map_Zone)
+                    continue;
 
-            switch (m.MonsterType)
-            {
-                case (int)define.MonsterTypes.Slime:
-                    go.AddComponent<Slime>();
-                    break;
-                case (int)define.MonsterTypes.TurtleSlime:
-                    break;
+                if (NetworkManager._monsters.Count != mList.monsterss.Count)
+                    return;
+
+                Creature c;
+                if (NetworkManager._monsters.TryGetValue(i, out c))
+                {
+                    c.transform.position = new Vector3(mList.monsterss[i].PosX, mList.monsterss[i].PosY, mList.monsterss[i].PosZ);
+                    c.transform.rotation = Quaternion.Euler(new Vector3(mList.monsterss[i].RotX, mList.monsterss[i].RotY, mList.monsterss[i].RotZ));
+                    c.GetComponent<MonsterStat>().MonsterId = mList.monsterss[i].MonsterId;
+                }
             }
-            go.transform.position = new Vector3(m.PosX, m.PosY, m.PosZ);
-            go.transform.rotation = Quaternion.Euler(new Vector3(m.RotX, m.RotY, m.RotZ));
-            NetworkManager._monsters.Add(m.MonsterId, go.GetComponent<Slime>());
         }
+        else
+        {
+            foreach (MonsterList.Monsters m in mList.monsterss)
+            {
+                if (m.Map_Zone != Managers.Game.Map_Zone)
+                    continue;
+
+                string monster = "";
+                switch (m.MonsterType)
+                {
+                    case (int)define.MonsterTypes.Slime:
+                        monster = "Slime";
+                        break;
+                    case (int)define.MonsterTypes.TurtleSlime:
+                        monster = "TurtleSlime";
+                        break;
+                }
+
+                GameObject go;
+                go = Managers.Resource.Instantiate($"Game/Monster/{monster}");
+                if (go == null)
+                    return;
+
+                switch (m.MonsterType)
+                {
+                    case (int)define.MonsterTypes.Slime:
+                        go.AddComponent<Slime>();
+                        break;
+                    case (int)define.MonsterTypes.TurtleSlime:
+                        break;
+                }
+                go.transform.position = new Vector3(m.PosX, m.PosY, m.PosZ);
+                go.transform.rotation = Quaternion.Euler(new Vector3(m.RotX, m.RotY, m.RotZ));
+                NetworkManager._monsters.Add(m.MonsterId, go.GetComponent<Slime>());
+            }
+        }
+        
     }
 
 

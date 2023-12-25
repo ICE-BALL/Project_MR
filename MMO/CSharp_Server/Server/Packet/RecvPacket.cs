@@ -84,7 +84,27 @@ namespace Server
 
         public void MonsterList(IPacket packet, ClientSession s)
         {
+            MonsterList mL = packet as MonsterList;
 
+            for (int i = 0;  i < GameManager.Instance._monsters.Count; i++)
+            {
+                if (GameManager.Instance._monsters[i] == null || GameManager.Instance._monsters.Count != mL.monsterss.Count)
+                    return;
+
+                GameManager.Instance._monsters[i].PosX = mL.monsterss[i].PosX;
+                GameManager.Instance._monsters[i].PosY = mL.monsterss[i].PosY;
+                GameManager.Instance._monsters[i].PosZ = mL.monsterss[i].PosZ;
+
+                GameManager.Instance._monsters[i].RotX = mL.monsterss[i].RotX;
+                GameManager.Instance._monsters[i].RotY = mL.monsterss[i].RotY;
+                GameManager.Instance._monsters[i].RotZ = mL.monsterss[i].RotZ;
+
+                GameManager.Instance._monsters[i].MonsterId = mL.monsterss[i].MonsterId;
+                GameManager.Instance._monsters[i].Map_Zone = mL.monsterss[i].Map_Zone;
+                GameManager.Instance._monsters[i].MonsterType = mL.monsterss[i].MonsterType;
+            }
+
+            //Program.Room.BroadCast(mL.Write(), s);
         }
 
         public void MonsterData(IPacket packet, ClientSession s)
@@ -101,6 +121,19 @@ namespace Server
             //s.Speed = data.Speed;
 
             //Program.Room.BroadCast(data.Write(), s);
+        }
+
+        public void MonsterMove(IPacket packet, ClientSession s)
+        {
+            //MonsterMove m = packet as MonsterMove;
+
+            //for (int i = 0; i < GameManager.Instance._monsters.Count; i++)
+            //{
+            //    GameManager.Instance._monsters[i].PosX = m.PosX;
+            //    GameManager.Instance._monsters[i].PosX = m.PosX;
+            //    GameManager.Instance._monsters[i].PosX = m.PosX;
+
+            //}
         }
     }
 }

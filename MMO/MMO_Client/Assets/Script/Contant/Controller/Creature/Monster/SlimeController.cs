@@ -19,8 +19,7 @@ public class SlimeController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _nav = GetComponent<NavMeshAgent>();
         _stat = GetComponent<MonsterStat>();
-        _nav.speed = 100;
-        _nav.SetDestination(transform.position);
+        GetComponent<Slime>().SetDesPos(transform.position);
     }
 
     private void Update()

@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class ServerSession : PacketSession
 {
+    public int SessionId {  get; set; }
+
     public override void OnConnect(EndPoint endPoint)
     {
         Debug.Log($"Connected to {endPoint}");

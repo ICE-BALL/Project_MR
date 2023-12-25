@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Slime : Creature
 {
+    public MonsterStat _stat;
+
+    private void Start()
+    {
+        _stat = GetComponent<MonsterStat>();
+    }
+
     public override void HitEvent(GameObject obj)
     {
         if (obj.gameObject.name == "MyPlayer")
@@ -24,5 +32,13 @@ public class Slime : Creature
             data.MonsterType = (int)define.MonsterTypes.Slime;
             NetworkManager._session.Send(data.Write());
         }
+    }
+
+    public override void SetDesPos(Vector3 pos)
+    {
+        NavMeshAgent _nav = transform.GetComponent<NavMeshAgent>();
+        _nav.speed = 100;
+        _nav.SetDestination(pos);
+        _nav.SetDestination(transform.position);
     }
 }

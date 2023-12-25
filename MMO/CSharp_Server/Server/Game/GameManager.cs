@@ -51,7 +51,7 @@ namespace Server
 
         public void SetMonster(MonsterTypes types, int mapZone)
         {
-            for (int i = 0; _monsterCount < MaxMonster; i++)
+            while (_monsterCount < MaxMonster)
             {
                 switch (types)
                 {

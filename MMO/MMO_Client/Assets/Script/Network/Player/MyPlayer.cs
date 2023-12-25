@@ -15,6 +15,13 @@ public class MyPlayer : Player
 
     void Update()
     {
+        UpdateMovePacket();
+        UpdateDataPacket();
+        Managers.Game.SendMovePacket();
+    }
+
+    public void UpdateMovePacket()
+    {
         PlayerMove movePacket = new PlayerMove();
         movePacket.PlayerId = PlayerId;
         movePacket.Map_Zone = Managers.Game.Map_Zone;
@@ -27,7 +34,12 @@ public class MyPlayer : Player
         movePacket.RotZ = transform.eulerAngles.z;
 
         movePacket.StateConvertNum = (int)GetComponent<PlayerController>()._state;
+        
+        NetworkManager._session.Send(movePacket.Write());
+    }
 
+    public void UpdateDataPacket()
+    {
         Data data = new Data();
         data.PlayerId = PlayerId;
         data.Map_Zone = Managers.Game.Map_Zone;
@@ -41,6 +53,5 @@ public class MyPlayer : Player
         data.Speed = _stat.Speed;
 
         NetworkManager._session.Send(data.Write());
-        NetworkManager._session.Send(movePacket.Write());
     }
 }

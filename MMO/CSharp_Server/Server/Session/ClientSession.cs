@@ -86,6 +86,16 @@ namespace Server
                     data.Read(Buffer);
                     RecvPacket.Instance.Data(data, this);
                     break;
+                case (ushort)PacketID.MonsterMove:
+                    MonsterMove monsterMove = new MonsterMove();
+                    monsterMove.Read(Buffer);
+                    RecvPacket.Instance.Data(monsterMove, this);
+                    break;
+                case (ushort)PacketID.MonsterList:
+                    MonsterList monsterList = new MonsterList();
+                    monsterList.Read(Buffer);
+                    RecvPacket.Instance.MonsterList(monsterList, this);
+                    break;
             }
         }
 

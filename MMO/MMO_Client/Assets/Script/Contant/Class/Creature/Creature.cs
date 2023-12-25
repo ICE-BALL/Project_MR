@@ -13,8 +13,9 @@ public abstract class Creature : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public abstract void HitEvent(GameObject obj);
+    public abstract void SetDesPos(Vector3 pos);
 }
