@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class HP_Bar : MonoBehaviour
 {
     Slider _hpBar;
-    public GameObject _player;
-    public PlayerStat _playerStat;
+    public GameObject _target;
+    public Stat _targetStat;
     public GameObject _parent;
+
     private void Start()
     {
         StartCoroutine(FindPlayer());
@@ -17,7 +18,7 @@ public class HP_Bar : MonoBehaviour
 
     private void Update()
     {
-        if (_player == null || _hpBar == null || _playerStat == null)
+        if (_target == null || _hpBar == null || _targetStat == null)
         {
             return;
         }
@@ -25,12 +26,12 @@ public class HP_Bar : MonoBehaviour
         {
             if (_parent.GetComponent<Canvas>().renderMode == RenderMode.ScreenSpaceOverlay)
             {
-                _hpBar.value = _playerStat.Hp / (float)_playerStat.MaxHp;
+                _hpBar.value = _targetStat.Hp / (float)_targetStat.MaxHp;
             }
             else if (_parent.GetComponent<Canvas>().renderMode == RenderMode.WorldSpace)
             {
                 transform.rotation = Camera.main.transform.rotation;
-                _hpBar.value = _playerStat.Hp / (float)_playerStat.MaxHp;
+                _hpBar.value = _targetStat.Hp / (float)_targetStat.MaxHp;
             }
         }
         
@@ -40,23 +41,23 @@ public class HP_Bar : MonoBehaviour
 
     private IEnumerator FindPlayer()
     {
-        while (_player == null)
+        while (_target == null)
         {
             _parent = transform.parent.gameObject;
             if (_parent.GetComponent<Canvas>().renderMode == RenderMode.ScreenSpaceOverlay)
             {
-                _player = GameObject.FindGameObjectWithTag("Player");
+                _target = GameObject.FindGameObjectWithTag("Player");
             }
             else if (_parent.GetComponent<Canvas>().renderMode == RenderMode.WorldSpace)
             {
                 _parent.GetComponent<Canvas>().worldCamera = Camera.main;
-                _player = transform.parent.parent.gameObject;
+                _target = transform.parent.parent.gameObject;
             }
 
             yield return null;
         }
 
-        _playerStat = _player.GetComponent<PlayerStat>();
+        _targetStat = _target.GetComponent<Stat>();
         _hpBar = GetComponent<Slider>();
     }
 }

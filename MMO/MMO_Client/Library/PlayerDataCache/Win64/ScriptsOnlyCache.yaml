@@ -22,8 +22,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -247,33 +249,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7750}
     - Class: 114
-      Script: {instanceID: 33560}
+      Script: {instanceID: 36768}
     - Class: 114
-      Script: {instanceID: 33562}
+      Script: {instanceID: 36770}
     - Class: 114
-      Script: {instanceID: 33564}
+      Script: {instanceID: 36772}
     - Class: 114
-      Script: {instanceID: 33574}
+      Script: {instanceID: 36782}
     - Class: 114
-      Script: {instanceID: 33576}
+      Script: {instanceID: 36784}
     - Class: 114
-      Script: {instanceID: 33578}
+      Script: {instanceID: 36786}
     - Class: 114
-      Script: {instanceID: 33580}
+      Script: {instanceID: 36788}
     - Class: 114
-      Script: {instanceID: 33588}
+      Script: {instanceID: 36796}
     - Class: 114
-      Script: {instanceID: 33590}
+      Script: {instanceID: 36798}
     - Class: 114
-      Script: {instanceID: 33592}
+      Script: {instanceID: 36800}
     - Class: 114
-      Script: {instanceID: 39326}
+      Script: {instanceID: 42534}
     - Class: 114
-      Script: {instanceID: 39334}
+      Script: {instanceID: 42542}
     - Class: 114
-      Script: {instanceID: 39336}
+      Script: {instanceID: 42544}
     - Class: 114
-      Script: {instanceID: 39338}
+      Script: {instanceID: 42546}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1121,7 +1123,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 45998817450616a19f91ac9ab67abce2
+      Hash: bf668fe387b5dac26c853228cedcc87a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HP_Bar

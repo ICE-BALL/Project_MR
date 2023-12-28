@@ -39,11 +39,6 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            _stat.Hp -= 10;
-            _stat.Mp -= 1;
-        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetMouseButton(0))
         {
             if (_state == define.PlayerState.Attack)

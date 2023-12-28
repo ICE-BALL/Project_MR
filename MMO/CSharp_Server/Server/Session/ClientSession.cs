@@ -96,6 +96,11 @@ namespace Server
                     monsterList.Read(Buffer);
                     RecvPacket.Instance.MonsterList(monsterList, this);
                     break;
+                case (ushort)PacketID.MonsterData:
+                    MonsterData monsterData = new MonsterData();
+                    monsterData.Read(Buffer);
+                    RecvPacket.Instance.MonsterData(monsterData, this);
+                    break;
             }
         }
 

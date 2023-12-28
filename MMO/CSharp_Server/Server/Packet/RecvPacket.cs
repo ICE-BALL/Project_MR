@@ -109,18 +109,28 @@ namespace Server
 
         public void MonsterData(IPacket packet, ClientSession s)
         {
-            //MonsterData data = packet as MonsterData;
+            MonsterData data = packet as MonsterData;
 
-            //s.Level = data.Level;
-            //s.MaxHp = data.MaxHp;
-            //s.Hp = data.Hp;
-            //s.MaxMp = data.MaxMp;
-            //s.Mp = data.Mp;
-            //s.Attack = data.Attack;
-            //s.AttackSpeed = data.AttackSpeed;
-            //s.Speed = data.Speed;
+            for (int i = 0; i < GameManager.Instance._monsters.Count; i++)
+            {
+                if (GameManager.Instance._monsters[i].MonsterId == data.MonsterId)
+                {
+                    GameManager.Instance._monsters[i].Level = data.Level;
+                    GameManager.Instance._monsters[i].MaxHp = data.MaxHp;
+                    GameManager.Instance._monsters[i].Hp = data.Hp;
+                    GameManager.Instance._monsters[i].MaxMp = data.MaxMp;
+                    GameManager.Instance._monsters[i].Mp = data.Mp;
+                    GameManager.Instance._monsters[i].Attack = data.Attack;
+                    GameManager.Instance._monsters[i].AttackSpeed = data.AttackSpeed;
+                    GameManager.Instance._monsters[i].Speed = data.Speed;
 
-            //Program.Room.BroadCast(data.Write(), s);
+                    GameManager.Instance._monsters[i].MonsterId = data.MonsterId;
+                    GameManager.Instance._monsters[i].Map_Zone = data.Map_Zone;
+                    GameManager.Instance._monsters[i].MonsterType = data.MonsterType;
+                }
+            }
+
+            Program.Room.BroadCast(data.Write(), s);
         }
 
         public void MonsterMove(IPacket packet, ClientSession s)
